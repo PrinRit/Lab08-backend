@@ -35,4 +35,10 @@ public class OrganizerController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND,"The given id is not found");
         }
     }
+
+    @PostMapping("/organizers")
+    public ResponseEntity<?> addEvent(@RequestBody Organizer event) {
+        Organizer output = organizerService.save(event);
+        return ResponseEntity.ok(event);
+    }
 }
